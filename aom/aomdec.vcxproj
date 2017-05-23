@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BA5FE66F-38DD-E034-F542-B1578C5FB950}</ProjectGuid>
+    <RootNamespace>aomdec</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>Win32\$(Configuration)\aomdec\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Win32\$(Configuration)\</OutDir>
+    <IntDir>Win32\$(Configuration)\aomdec\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>"./third_party/libwebm";"./av1";"./av1";".";".";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>"./third_party/libwebm";"./av1";"./av1";".";".";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="md5_utils.c">
+      <ObjectFileName>$(IntDir)md5_utils.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="args.c">
+      <ObjectFileName>$(IntDir)args.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="ivfdec.c">
+      <ObjectFileName>$(IntDir)ivfdec.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="tools_common.c">
+      <ObjectFileName>$(IntDir)tools_common.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="y4menc.c">
+      <ObjectFileName>$(IntDir)y4menc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="third_party\libwebm\common\hdr_util.cc">
+      <ObjectFileName>$(IntDir)third_party_libwebm_common_hdr_util.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="third_party\libwebm\mkvmuxer\mkvmuxer.cc">
+      <ObjectFileName>$(IntDir)third_party_libwebm_mkvmuxer_mkvmuxer.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="third_party\libwebm\mkvmuxer\mkvmuxerutil.cc">
+      <ObjectFileName>$(IntDir)third_party_libwebm_mkvmuxer_mkvmuxerutil.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="third_party\libwebm\mkvmuxer\mkvwriter.cc">
+      <ObjectFileName>$(IntDir)third_party_libwebm_mkvmuxer_mkvwriter.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="third_party\libwebm\mkvparser\mkvparser.cc">
+      <ObjectFileName>$(IntDir)third_party_libwebm_mkvparser_mkvparser.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="third_party\libwebm\mkvparser\mkvreader.cc">
+      <ObjectFileName>$(IntDir)third_party_libwebm_mkvparser_mkvreader.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="webmdec.cc">
+      <ObjectFileName>$(IntDir)webmdec.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="aomdec.c">
+      <ObjectFileName>$(IntDir)aomdec.obj</ObjectFileName>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="md5_utils.h" />
+    <ClInclude Include="aom_ports\mem_ops.h" />
+    <ClInclude Include="aom_ports\mem_ops_aligned.h" />
+    <ClInclude Include="aom_ports\msvc.h" />
+    <ClInclude Include="aom_ports\aom_timer.h" />
+    <ClInclude Include="aom\aom_integer.h" />
+    <ClInclude Include="args.h" />
+    <ClInclude Include="ivfdec.h" />
+    <ClInclude Include="tools_common.h" />
+    <ClInclude Include="y4menc.h" />
+    <ClInclude Include="third_party\libwebm\common\hdr_util.h" />
+    <ClInclude Include="third_party\libwebm\common\webmids.h" />
+    <ClInclude Include="third_party\libwebm\mkvmuxer\mkvmuxer.h" />
+    <ClInclude Include="third_party\libwebm\mkvmuxer\mkvmuxertypes.h" />
+    <ClInclude Include="third_party\libwebm\mkvmuxer\mkvmuxerutil.h" />
+    <ClInclude Include="third_party\libwebm\mkvparser\mkvparser.h" />
+    <ClInclude Include="third_party\libwebm\mkvmuxer\mkvwriter.h" />
+    <ClInclude Include="third_party\libwebm\mkvparser\mkvreader.h" />
+    <ClInclude Include="webmdec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="examples.mk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="aom.vcxproj">
+      <Project>{DCE19DAF-69AC-46DB-B14A-39F0FAA5DB74}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
