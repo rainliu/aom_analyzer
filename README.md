@@ -13,7 +13,6 @@ AOM_ANALYZER
 
 6). type 'help' for more commands information
 
-============
 
 Command Help:
 ============
